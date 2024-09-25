@@ -1,0 +1,138 @@
+CREATE TABLE Achievement(
+   achievement_id INT,
+   name VARCHAR(50),
+   description VARCHAR(50),
+   icon VARCHAR(50),
+   PRIMARY KEY(achievement_id)
+);
+
+CREATE TABLE Campus(
+   campus_id INT,
+   city VARCHAR(50),
+   zip_code VARCHAR(50),
+   PRIMARY KEY(campus_id)
+);
+
+CREATE TABLE Category(
+   category_id INT,
+   name VARCHAR(50),
+   description VARCHAR(50),
+   PRIMARY KEY(category_id)
+);
+
+CREATE TABLE Tag(
+   tag_id INT,
+   name VARCHAR(50),
+   description VARCHAR(50),
+   PRIMARY KEY(tag_id)
+);
+
+CREATE TABLE _User(
+   user_id INT,
+   name VARCHAR(50),
+   pseudo VARCHAR(50),
+   surname VARCHAR(50),
+   mail VARCHAR(50),
+   password_hash VARCHAR(50),
+   xp INT,
+   level INT,
+   profil_picture VARCHAR(50),
+   date_time_inscription DATETIME,
+   date_time_last_connection DATETIME,
+   campus_id INT NOT NULL,
+   PRIMARY KEY(user_id),
+   UNIQUE(pseudo),
+   UNIQUE(mail),
+   FOREIGN KEY(campus_id) REFERENCES Campus(campus_id)
+);
+
+CREATE TABLE Message(
+   message_id INT,
+   content VARCHAR(50),
+   date_time_send DATETIME,
+   user_id INT NOT NULL,
+   user_id_1 INT NOT NULL,
+   PRIMARY KEY(message_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id),
+   FOREIGN KEY(user_id_1) REFERENCES _User(user_id)
+);
+
+CREATE TABLE Post(
+   post_id INT,
+   title VARCHAR(50),
+   text VARCHAR(50),
+   media VARCHAR(50),
+   date_time_creation DATETIME,
+   tag_id INT,
+   user_id INT NOT NULL,
+   PRIMARY KEY(post_id),
+   FOREIGN KEY(tag_id) REFERENCES Tag(tag_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id)
+);
+
+CREATE TABLE Course(
+   course_id INT,
+   date_time_asked DATETIME,
+   date_time_accepted DATETIME,
+   date_time_done DATETIME,
+   canceled LOGICAL,
+   post_id INT NOT NULL,
+   user_id INT NOT NULL,
+   user_id_1 INT NOT NULL,
+   PRIMARY KEY(course_id),
+   FOREIGN KEY(post_id) REFERENCES Post(post_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id),
+   FOREIGN KEY(user_id_1) REFERENCES _User(user_id)
+);
+
+CREATE TABLE Event(
+   event_id INT,
+   title VARCHAR(50),
+   description VARCHAR(50),
+   date_event DATETIME,
+   date_time_creation DATETIME,
+   user_id INT NOT NULL,
+   PRIMARY KEY(event_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id)
+);
+
+CREATE TABLE user_achievement(
+   user_id INT,
+   achievement_id INT,
+   date_time_obtained DATETIME,
+   PRIMARY KEY(user_id, achievement_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id),
+   FOREIGN KEY(achievement_id) REFERENCES Achievement(achievement_id)
+);
+
+CREATE TABLE preferences(
+   user_id INT,
+   category_id INT,
+   PRIMARY KEY(user_id, category_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id),
+   FOREIGN KEY(category_id) REFERENCES Category(category_id)
+);
+
+CREATE TABLE post_category(
+   category_id INT,
+   post_id INT,
+   PRIMARY KEY(category_id, post_id),
+   FOREIGN KEY(category_id) REFERENCES Category(category_id),
+   FOREIGN KEY(post_id) REFERENCES Post(post_id)
+);
+
+CREATE TABLE participe(
+   user_id INT,
+   event_id INT,
+   PRIMARY KEY(user_id, event_id),
+   FOREIGN KEY(user_id) REFERENCES _User(user_id),
+   FOREIGN KEY(event_id) REFERENCES Event(event_id)
+);
+
+CREATE TABLE Event_category(
+   category_id INT,
+   event_id INT,
+   PRIMARY KEY(category_id, event_id),
+   FOREIGN KEY(category_id) REFERENCES Category(category_id),
+   FOREIGN KEY(event_id) REFERENCES Event(event_id)
+);
