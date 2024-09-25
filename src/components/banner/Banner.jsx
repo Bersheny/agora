@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from "../../assets/logo-banner.svg";
-import s from "./style.module.css";
+import './Banner.css';
 
 const Banner = () => {
 
 return(
-    <div className={s.banner}>
-      <img className={s.agoraImg} src={logo}></img>
+    <div className="banner">
+      <img className="agoraImg" src={logo} alt="Agora"></img>
     </div>
   );
 };
