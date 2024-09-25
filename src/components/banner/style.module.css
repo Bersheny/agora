@@ -1,9 +1,10 @@
 .banner {
   background-color: var(--orange-dark);
-  padding-top: 10.5px;
-  padding-bottom: 6.75px;
+  padding-top:13px;
+  padding-bottom: 9px;
 }
 
 .agoraImg {
-  width: 51vw;
+  width: 52vw;
+  height: auto;
 }
