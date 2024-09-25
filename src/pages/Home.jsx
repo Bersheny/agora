@@ -1,23 +1,14 @@
 import React from 'react';
 import Banner from '../components/banner/Banner.jsx';
+import Navbar from '../components/navbar/Navbar.jsx';
+import DualTimeline from '../components/timeline/DualTimeline.jsx';
 
 function Home() {
   return (
     <div>
       <Banner />
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the main page of the application. Feel free to explore!</p>
-      
-      <section>
-        <h2>Featured Content</h2>
-        <p>Here you can display important or featured content for your users.</p>
-      </section>
-      
-      <section>
-        <h2>Get Started</h2>
-        <p>Provide some instructions or links to help users get started with your app.</p>
-        <button onClick={() => alert('Welcome!')}>Click Me!</button>
-      </section>
+      <Navbar />
+      <DualTimeline />
     </div>
   );
 }
