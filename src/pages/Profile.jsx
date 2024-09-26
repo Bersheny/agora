@@ -2,12 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Pour récupérer le paramètre de l'URL
 import { fetchSingleUser } from "../api/table-api.js";
 import Banner from '../components/banner/Banner.jsx';
+import Hobby from '../components/hobby/Hobby.jsx';
 import Navbar from '../components/navbar/Navbar.jsx';
 
 const Profile = () => {
   const { userId } = useParams(); // Récupère l'ID de l'utilisateur depuis l'URL
   const [user, setUser] = useState(null); // Pour stocker l'utilisateur
   const [error, setError] = useState(null); // Pour gérer les erreurs
+   // Liste des hobbies avec leurs niveaux respectifs
+  const [hobbies, setHobbies] = useState([]); // Liste des hobbies vide au départ
+
+  // Fonction pour mettre à jour le niveau d'un hobby spécifique
+  const handleLevelChange = (id, newLevel) => {
+    setHobbies(hobbies.map(hobby =>
+      hobby.id === id ? { ...hobby, level: newLevel } : hobby
+    ));
+  };
 
   useEffect(() => {
     const getUserData = async () => {
@@ -15,6 +25,21 @@ const Profile = () => {
       if (userId) {
         const userData = await fetchSingleUser(userId); // Utilise l'ID récupéré dans l'URL
         setUser(userData);
+
+        // Mise à jour des hobbies en fonction du userId
+        if (parseInt(userId) === 1) {
+          setHobbies([
+            { id: 1, name: 'Guitare', level: 'je veux apprendre' },
+            { id: 2, name: 'Dessin', level: 'je sais faire' },
+            { id: 5, name: 'Wargames', level: 'je sais faire' }
+          ]);
+        } else if (parseInt(userId) === 2) {
+          setHobbies([
+            { id: 3, name: 'Photographie', level: 'je peux enseigner' },
+            { id: 4, name: 'Cuisine', level: 'je veux apprendre' }
+          ]);
+        }
+
       } else {
         setError("Aucun ID utilisateur spécifié.");
       }
@@ -36,39 +61,48 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="profile">
       <Banner />
-      <h1>Profil de l'utilisateur</h1>
-      <section className="infos">
-        <div className="infos-left-part">
+      <h1 className="profile-title">Profil de l'utilisateur</h1>
+      <section className="profile-infos">
+        <div className="profile-infos-left-part">
           <img src={user.profil_picture} alt={user.pseudo} className="profile-pic"></img>
           {/* ajouter un bouton de modification */}
         </div>
-        <div className="infos-right-part">
+        <div className="profile-infos-right-part">
           <p>{user.pseudo}</p>
           <p>{user.mail}</p>
         </div>
         {/* ajouter un bouton de modification */}
-        {/* <div className="infos-right-part-to-change">
+        {/* <div className="profile-infos-right-part-to-change">
           <input type="text" placeholder="Pseudo"></input>
           <input type="text" placeholder="Mail"></input>
         </div> */}
       </section>
-      <section className="bio">
+      <section className="profile-bio">
         <h2>Bio</h2>
-        <div className="bio-content">
+        <div className="profile-bio-content">
           <p>{user.bio}</p>
         </div>
         {/* ajouter un bouton de modification */}
-        {/* <div className="bio-content-to-change">
+        {/* <div className="profile-bio-content-to-change">
           <input type="textarea" placeholder="Parlez-nous un peu de vous"></input>
         </div> */}
       </section>
-      <section className="tags">
+      <section className="profile-tags">
         <h2>Loisirs</h2>
-        <p>composant compétence</p>
-        <p>autre composant compétence</p>
-        <p>etc.</p>
+        {hobbies.map(hobby => (
+        <Hobby 
+          key={hobby.id}
+          hobbyName={hobby.name} 
+          userLevel={hobby.level}
+          onLevelChange={(newLevel) => handleLevelChange(hobby.id, newLevel)}
+        />
+      ))}
+        <div className="profile-tags-ajout">
+          <button>+</button>
+          <p>Ajout d'une passion</p>
+        </div>
 
       </section>
       <Navbar />
