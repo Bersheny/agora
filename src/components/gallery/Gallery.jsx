@@ -1,11 +1,20 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Gallery({medias, index = 0}) {
-  
+
+/*<Gallery medias={['https://www.atelierdupiano.fr/1467-large_default/fl%C3%BBte-irlandaise-generation.jpg',
+                    'https://www.instruments-musique-celtique.fr/891-product_hd/flute-traversire-irlandaise-en-bois-d-bne.jpg'
+]}/>*/
+
+
+export function Gallery({medias, index = 0}) {
     const [currentIndex, setCurrentIndex] = useState(index);
     const [currentMedia, setCurrentMedia] = useState(medias[currentIndex])
   
+    if (!medias || medias.length === 0) {
+        return null;
+    }
+
     function handlePreviousMedia(){
           let updatedIndex = currentIndex-1
           if(updatedIndex < 0){
@@ -42,5 +51,5 @@ export default function Gallery({medias, index = 0}) {
 }
 
 Gallery.propTypes={
-    medias: PropTypes.array
+    medias: PropTypes.arrayOf(PropTypes.string)
 }
