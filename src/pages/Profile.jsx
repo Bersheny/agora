@@ -30,7 +30,8 @@ const Profile = () => {
         if (parseInt(userId) === 1) {
           setHobbies([
             { id: 1, name: 'Guitare', level: 'je veux apprendre' },
-            { id: 2, name: 'Dessin', level: 'je sais faire' }
+            { id: 2, name: 'Dessin', level: 'je sais faire' },
+            { id: 5, name: 'Wargames', level: 'je sais faire' }
           ]);
         } else if (parseInt(userId) === 2) {
           setHobbies([
@@ -60,35 +61,35 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className="profile">
       <Banner />
-      <h1>Profil de l'utilisateur</h1>
-      <section className="infos">
-        <div className="infos-left-part">
+      <h1 className="profile-title">Profil de l'utilisateur</h1>
+      <section className="profile-infos">
+        <div className="profile-infos-left-part">
           <img src={user.profil_picture} alt={user.pseudo} className="profile-pic"></img>
           {/* ajouter un bouton de modification */}
         </div>
-        <div className="infos-right-part">
+        <div className="profile-infos-right-part">
           <p>{user.pseudo}</p>
           <p>{user.mail}</p>
         </div>
         {/* ajouter un bouton de modification */}
-        {/* <div className="infos-right-part-to-change">
+        {/* <div className="profile-infos-right-part-to-change">
           <input type="text" placeholder="Pseudo"></input>
           <input type="text" placeholder="Mail"></input>
         </div> */}
       </section>
-      <section className="bio">
+      <section className="profile-bio">
         <h2>Bio</h2>
-        <div className="bio-content">
+        <div className="profile-bio-content">
           <p>{user.bio}</p>
         </div>
         {/* ajouter un bouton de modification */}
-        {/* <div className="bio-content-to-change">
+        {/* <div className="profile-bio-content-to-change">
           <input type="textarea" placeholder="Parlez-nous un peu de vous"></input>
         </div> */}
       </section>
-      <section className="tags">
+      <section className="profile-tags">
         <h2>Loisirs</h2>
         {hobbies.map(hobby => (
         <Hobby 
@@ -98,7 +99,10 @@ const Profile = () => {
           onLevelChange={(newLevel) => handleLevelChange(hobby.id, newLevel)}
         />
       ))}
-        <p>etc.</p>
+        <div className="profile-tags-ajout">
+          <button>+</button>
+          <p>Ajout d'une passion</p>
+        </div>
 
       </section>
       <Navbar />
