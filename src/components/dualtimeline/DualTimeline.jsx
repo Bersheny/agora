@@ -1,20 +1,10 @@
-// src/components/DualTimeline.js
+// src/components/DualTimeline.jsx
 import React, { useState } from 'react';
 import Timeline from '../timeline/Timeline';
 import './DualTimeline.css'; // For styling
 
-function DualTimeline() {
+function DualTimeline({ forYouPosts, followingPosts, users }) {
   const [activeTab, setActiveTab] = useState('foryou'); // Default active tab is 'foryou'
-
-  const forYouPosts = [
-    { user: 'Musique', content: 'Poste "Votre feed".' },
-    { user: 'Bricolage', content: 'Poste "Votre feed".' }
-  ];
-
-  const followingPosts = [
-    { user: 'Jardinage', content: 'Poste "Le campus".' },
-    { user: 'Musique', content: 'Poste "Le campus".' }
-  ];
 
   return (
     <div className="dual-timeline">
@@ -35,8 +25,8 @@ function DualTimeline() {
       </div>
 
       {/* Conditionally Render the Timelines */}
-      {activeTab === 'foryou' && <Timeline posts={forYouPosts} />}
-      {activeTab === 'following' && <Timeline posts={followingPosts} />}
+      {activeTab === 'foryou' && <Timeline posts={forYouPosts} users={users} />}
+      {activeTab === 'following' && <Timeline posts={followingPosts} users={users} />}
     </div>
   );
 }
