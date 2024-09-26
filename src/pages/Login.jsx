@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import LoginBanner from '../components/loginbanner/LoginBanner.jsx';
-import './Login.css';
 import { fetchUserData } from '../api/table-api.js';
+import LoginBanner from '../components/loginbanner/LoginBanner.jsx';
 
 function Login() {
   const [email, setEmail] = useState('');

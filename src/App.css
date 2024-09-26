@@ -2,6 +2,49 @@
   text-align: center;
 }
 
+/* login */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+/* Blue button */
+.blue-button {
+  background-color: #5784a1; /* Blue color */
+}
+
+.blue-button:hover {
+  background-color: #486c85; /* Darker blue on hover */
+}
+
+/* Green button */
+.green-button {
+  background-color: #ade374; /* Green color */
+}
+
+.green-button:hover {
+  background-color: #7ca551; /* Darker green on hover */
+}
+
+.forgot-password {
+  font-size: 10px;
+}
+
 /* profile page */
 .profile-title {
   display: none;

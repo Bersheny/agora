@@ -1,10 +1,10 @@
-import { Gallery } from "../components/Gallery/Gallery";
-import { Inscription } from "../components/Inscription/Inscription";
-import { Title } from "../components/Title/Title";
-import { Tag } from "../components/Tag/Tag";
-import { Description } from "../components/Description/Description";
 import Banner from '../components/banner/Banner.jsx';
+import { Description } from "../components/Description/Description";
+import { Gallery } from "../components/gallery/Gallery";
+import { Inscription } from "../components/Inscription/Inscription";
 import Navbar from '../components/navbar/Navbar.jsx';
+import { Tag } from "../components/Tag/Tag";
+import { Title } from "../components/Title/Title";
 
 export function Post(){
     const fetchData = {

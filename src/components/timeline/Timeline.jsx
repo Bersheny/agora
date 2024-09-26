@@ -10,8 +10,8 @@ function Timeline({ posts, users }) {
           const author = users[post.fields['user-id']]; // Fetching user info based on user-id
           return (
             <div key={post.id} className="post">
-              <h4>{author ? author.name : 'Unknown Author'}</h4> {/* Display author's name */}
-              <h4>{post.fields.title}</h4> {/* Display post title */}
+              <h4 className="post-chapo">{author ? author.name : 'Unknown Author'}</h4> {/* Display author's name */}
+              <h4 className="post-chapo">{post.fields.title}</h4> {/* Display post title */}
               <p>{post.fields.text}</p> {/* Display post text */}
             </div>
           );

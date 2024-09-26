@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Pour récupérer le paramètre de l'URL
 import { fetchSingleUser } from "../api/table-api.js";
 import Banner from '../components/banner/Banner.jsx';
+import DualProfile from "../components/dualprofile/DualProfile.jsx";
 import Hobby from '../components/hobby/Hobby.jsx';
 import Navbar from '../components/navbar/Navbar.jsx';
 
@@ -63,6 +64,7 @@ const Profile = () => {
   return (
     <div className="profile">
       <Banner />
+      <DualProfile />
       <h1 className="profile-title">Profil de l'utilisateur</h1>
       <section className="profile-infos">
         <div className="profile-infos-left-part">
