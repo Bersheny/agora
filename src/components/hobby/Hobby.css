@@ -1,0 +1,47 @@
+.hobby {
+  margin: 0;
+  gap: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobby > button {
+  background-color: var(--grey);
+  border-radius: 50%;
+  padding: 0 0 7px 0;
+  color: var(--orange-dark);
+  font-size: 3rem;
+  line-height: 0.5rem;
+  height: 23px;
+  width: 23px;
+}
+
+.hobby > p {
+  background-color: var(--grey);
+  border-radius: 40px;
+  padding: 0 0 0 10px;
+  margin: 4px;
+  font-size: 1rem;
+  width: 33vw;
+  text-align: left;
+}
+
+.custom-select {
+  background-color: var(--grey);
+  color: var(--orange-dark);
+  border-radius: 40px;
+  padding-left: 10px;
+  font-family: 'Agora', sans-serif;
+  font-size: 1rem;
+  width: 45vw;
+  text-align: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-select option {
+  font-family: 'Agora', sans-serif;
+}
