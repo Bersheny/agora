@@ -1,19 +1,19 @@
 // src/components/DualTimeline.js
 import React, { useState } from 'react';
-import Timeline from './Timeline';
+import Timeline from '../timeline/Timeline';
 import './DualTimeline.css'; // For styling
 
 function DualTimeline() {
   const [activeTab, setActiveTab] = useState('foryou'); // Default active tab is 'foryou'
 
   const forYouPosts = [
-    { user: 'User1', content: 'This is a post from For You timeline.' },
-    { user: 'User2', content: 'Another post from For You timeline.' }
+    { user: 'Musique', content: 'Poste "Votre feed".' },
+    { user: 'Bricolage', content: 'Poste "Votre feed".' }
   ];
 
   const followingPosts = [
-    { user: 'User3', content: 'This is a post from Following timeline.' },
-    { user: 'User4', content: 'Another post from Following timeline.' }
+    { user: 'Jardinage', content: 'Poste "Le campus".' },
+    { user: 'Musique', content: 'Poste "Le campus".' }
   ];
 
   return (
