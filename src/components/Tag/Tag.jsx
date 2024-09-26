@@ -5,12 +5,11 @@ export function Tag(post){
     let liste = undefined
     function tagCount(){
         const dataList = post.post.tag
-        var tagList ='';
-        dataList.forEach((e) => {
-            tagList += <div>{e}</div>;
+        var tagList =[];
+        dataList.forEach((tag) => {
+            tagList.push(<div>{tag}</div>);
         });
-        console.log(tagList);
-        liste = tagList
+        liste = tagList;
     }
 
     tagCount();
