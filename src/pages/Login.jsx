@@ -43,7 +43,7 @@ function Login() {
       <div className="orange-banner"></div>
       <LoginBanner />
       <form onSubmit={handleSubmit} className="form-example">
-        <div>
+        <div className="weird">
           Mail<br />
           <input
             type="email"
@@ -53,7 +53,7 @@ function Login() {
           />
         </div>
 
-        <div>
+        <div className="weird">
           Mot de passe<br />
           <input
             type="password"

@@ -2,30 +2,46 @@
   text-align: center;
 }
 
-/* login */
 button {
-  padding: 10px 20px;
-  font-size: 16px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
   transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* login */
+
+.weird {
+  color: #5784a1;
+  font-size: 1.4rem;
+  margin-top: 28px;
+}
+
+#email, #password {
+  width: 320px;
+  height: 38px;
+  border: 1px solid #5784a1;
+}
+
+.form-example a {
+  color: #5784a1;
+  font-size: 0.9rem;
+  font-weight: 400;;
 }
 
 .button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 4px 20px;
+  font-size: 1.4rem;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   color: var(--white);
-  transition: background-color 0.3s ease;
+  font-family: 'Agora', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Blue button */
 .blue-button {
-  background-color: #5784a1; /* Blue color */
+  background-color: #5784a1;
+  width: 250px;
 }
 
 .blue-button:hover {
@@ -34,7 +50,8 @@ button {
 
 /* Green button */
 .green-button {
-  background-color: #ade374; /* Green color */
+  background-color: #ade374;
+  width: 300px;
 }
 
 .green-button:hover {
@@ -46,6 +63,7 @@ button {
 }
 
 /* profile page */
+
 .profile-title {
   display: none;
 }

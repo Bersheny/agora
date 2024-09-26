@@ -10,13 +10,16 @@
 .hobby > button {
   background-color: var(--grey);
   border-radius: 50%;
+  border: none;
   padding: 0 0 7px 0;
   color: var(--orange-dark);
   font-size: 3rem;
   line-height: 0.5rem;
   height: 23px;
   width: 23px;
+  transition: background-color 0.3s ease;
 }
+
 
 .hobby > p {
   background-color: var(--grey);
