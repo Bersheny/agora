@@ -14,19 +14,21 @@ function DualTimeline({ forYouPosts, followingPosts, users }) {
           className={`tab-button ${activeTab === 'foryou' ? 'active' : ''}`} 
           onClick={() => setActiveTab('foryou')}
         >
-          Votre feed
+          Votre Feed
         </button>
         <button 
           className={`tab-button ${activeTab === 'following' ? 'active' : ''}`} 
           onClick={() => setActiveTab('following')}
         >
-          Le campus
+          Le Campus
         </button>
       </div>
 
-      {/* Conditionally Render the Timelines */}
-      {activeTab === 'foryou' && <Timeline posts={forYouPosts} users={users} />}
-      {activeTab === 'following' && <Timeline posts={followingPosts} users={users} />}
+      <div className="feed">
+        {/* Conditionally Render the Timelines */}
+        {activeTab === 'foryou' && <Timeline posts={forYouPosts} users={users} />}
+        {activeTab === 'following' && <Timeline posts={followingPosts} users={users} />}
+      </div>
     </div>
   );
 }

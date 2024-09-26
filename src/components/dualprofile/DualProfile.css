@@ -1,0 +1,41 @@
+/* src/components/DualTimeline.css */
+.dual-profile {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-button {
+  width: 50vw;
+  padding: 7px 20px 1px;
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: 'Agora', sans-serif;
+  border: none;
+  border-bottom: 2px solid var(--orange-dark);
+  border-radius: 0;
+  cursor: pointer;
+  background-color: var(--grey); /* Par défaut, second bouton gris */
+  color: var(--orange-dark);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Hover uniquement pour les boutons inactifs */
+.tab-button:not(.active):hover {
+  background-color: var(--orange-light); /* Change la couleur au hover */
+}
+
+/* Règle pour hover */
+.tab-button:hover {
+  background-color: var(--orange-light);
+}
+
+/* Quand le bouton est actif (le premier bouton avec 'active' class) */
+.tab-button.active {
+  background-color: var(--white);
+  color: var(--orange-dark);
+  text-decoration: underline; /* Soulignure activée */
+  text-decoration-thickness: 3px; /* Épaisseur de la soulignure */
+  text-underline-offset: 4px; /* Distance entre le texte et la soulignure */
+}

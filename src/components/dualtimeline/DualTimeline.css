@@ -1,53 +1,46 @@
 /* src/components/DualTimeline.css */
 .dual-timeline {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
   
-  .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .tab-button {
-    padding: 10px 20px;
-    margin: 0 5px;
-    border: none;
-    background-color: #f4f4f4;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    color: #333;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tab-button.active {
-    background-color: var(--orange-dark);
-    color: white;
-  }
-  
-  .tab-button:hover {
-    background-color: var(--orange-light);
-  }
-  
-  .timeline {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    margin-left: -20px;
-  }
-  
-  .posts {
-    margin-top: 10px;
-  }
-  
-  .post {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+.feed {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.timeline {
+  background-color: var(--white);
+  padding: 38px 20px;
+  margin-left: -20px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  font-size: 1.5rem;
+}
+
+.post {
+  background-color: var(--grey);
+  padding: 32px 16px;
+  margin: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--white);
+}
+
+.post-chapo {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin: 0;
+}
+
+.post > p {
+  margin: 5px 0 2px;
+  font-size: 1.3rem;
+}
