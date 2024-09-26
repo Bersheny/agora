@@ -2,12 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Pour récupérer le paramètre de l'URL
 import { fetchSingleUser } from "../api/table-api.js";
 import Banner from '../components/banner/Banner.jsx';
+import Hobby from '../components/hobby/Hobby.jsx';
 import Navbar from '../components/navbar/Navbar.jsx';
 
 const Profile = () => {
   const { userId } = useParams(); // Récupère l'ID de l'utilisateur depuis l'URL
   const [user, setUser] = useState(null); // Pour stocker l'utilisateur
   const [error, setError] = useState(null); // Pour gérer les erreurs
+   // Liste des hobbies avec leurs niveaux respectifs
+  const [hobbies, setHobbies] = useState([]); // Liste des hobbies vide au départ
+
+  // Fonction pour mettre à jour le niveau d'un hobby spécifique
+  const handleLevelChange = (id, newLevel) => {
+    setHobbies(hobbies.map(hobby =>
+      hobby.id === id ? { ...hobby, level: newLevel } : hobby
+    ));
+  };
 
   useEffect(() => {
     const getUserData = async () => {
@@ -15,6 +25,20 @@ const Profile = () => {
       if (userId) {
         const userData = await fetchSingleUser(userId); // Utilise l'ID récupéré dans l'URL
         setUser(userData);
+
+        // Mise à jour des hobbies en fonction du userId
+        if (parseInt(userId) === 1) {
+          setHobbies([
+            { id: 1, name: 'Guitare', level: 'je veux apprendre' },
+            { id: 2, name: 'Dessin', level: 'je sais faire' }
+          ]);
+        } else if (parseInt(userId) === 2) {
+          setHobbies([
+            { id: 3, name: 'Photographie', level: 'je peux enseigner' },
+            { id: 4, name: 'Cuisine', level: 'je veux apprendre' }
+          ]);
+        }
+
       } else {
         setError("Aucun ID utilisateur spécifié.");
       }
@@ -66,8 +90,14 @@ const Profile = () => {
       </section>
       <section className="tags">
         <h2>Loisirs</h2>
-        <p>composant compétence</p>
-        <p>autre composant compétence</p>
+        {hobbies.map(hobby => (
+        <Hobby 
+          key={hobby.id}
+          hobbyName={hobby.name} 
+          userLevel={hobby.level}
+          onLevelChange={(newLevel) => handleLevelChange(hobby.id, newLevel)}
+        />
+      ))}
         <p>etc.</p>
 
       </section>
