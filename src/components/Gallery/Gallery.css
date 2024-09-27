@@ -1,0 +1,32 @@
+.gallery{
+    display: flex;
+    width: 90vw;
+    justify-content: space-between;
+    position: relative;
+    padding: 5%;
+    align-items: center;
+}
+
+.gallery>div{
+    position: absolute;
+    left: 44%;
+    top: 80%;
+
+    display: flex;
+}
+
+.gallery>button{
+    background-color: #FC9F81;
+
+    padding: 1% 4%;
+    border-radius: 20pt;
+}
+
+.index__text{
+    display: flex;
+    margin: auto;
+    color: white;
+    background-color: #FC9F81;
+    padding: 1% 55%;
+    border-radius: 20pt;
+}
