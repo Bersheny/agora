@@ -1,0 +1,21 @@
+.inscriptionSection{
+    display: inline-flex;
+    width: 90vw;
+    justify-content: space-between;
+    margin-bottom: 20%;
+
+}
+.inscriptionSection>*{
+    margin: 0%;
+    display: flex;
+    text-align: center;
+    background-color: #FC9F81;
+    color: white;
+    border-radius: 15pt;
+    padding: 1% 5%;
+
+}
+
+.inscriptionSection>div{
+    cursor: pointer;
+}
