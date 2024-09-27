@@ -16,7 +16,8 @@
 }
 
 .gallery>button{
-    background-color: #FC9F81;
+    background-color: var(--orange-dark);
+    color: var(--white);
 
     padding: 1% 4%;
     border-radius: 20pt;
@@ -25,8 +26,8 @@
 .index__text{
     display: flex;
     margin: auto;
-    color: white;
-    background-color: #FC9F81;
+    color: var(--white);
+    background-color: var(--orange-dark);
     padding: 1% 55%;
     border-radius: 20pt;
 }
