@@ -1,6 +1,6 @@
 import Banner from '../components/banner/Banner.jsx';
 import { Description } from "../components/Description/Description";
-import { Gallery } from "../components/gallery/Gallery";
+import { Gallery } from "../components/Gallery/Gallery";
 import { Inscription } from "../components/Inscription/Inscription";
 import Navbar from '../components/navbar/Navbar.jsx';
 import { Tag } from "../components/Tag/Tag";

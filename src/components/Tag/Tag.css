@@ -1,0 +1,28 @@
+.tagSection{
+    display: inline-flex;
+    width: 90vw;
+    justify-content: space-between;
+}
+#tagList{
+    display: inline-flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.tag{
+    display: flex;
+    text-align: center;
+    background-color: #FC9F81;
+    color: white;
+    border-radius: 15pt;
+    padding: 1% 5%;
+}
+
+.tagType{
+    display: flex;
+    text-align: center;
+    background-color: #5785A1;
+    color: white;
+    border-radius: 15pt;
+    padding: 1% 5%;
+}
